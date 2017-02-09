@@ -47,15 +47,22 @@ var PaginationBoxView = function (_Component) {
     _this.handlePreviousPage = function (evt) {
       evt.preventDefault ? evt.preventDefault() : evt.returnValue = false;
       if (_this.state.selected > 0) {
-        _this.handlePageSelected(_this.state.selected - 1, evt);
+        _this.handleMoveBotton(_this.state.selected - 1);
+        //this.handlePageSelected(this.state.selected - 1, evt);
       }
     };
 
     _this.handleNextPage = function (evt) {
       evt.preventDefault ? evt.preventDefault() : evt.returnValue = false;
       if (_this.state.selected < _this.props.pageCount - 1) {
-        _this.handlePageSelected(_this.state.selected + 1, evt);
+        _this.handleMoveBotton(_this.state.selected + 1);
+        //this.handlePageSelected(this.state.selected + 1, evt);
       }
+    };
+
+    _this.handleMoveBotton = function (selected) {
+      if (_this.state.selected === selected) return;
+      _this.setState({ selected: selected });
     };
 
     _this.handlePageSelected = function (selected, evt) {

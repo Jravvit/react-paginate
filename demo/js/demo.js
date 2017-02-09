@@ -59,6 +59,7 @@ export class App extends Component {
     let selected = data.selected;
     let offset = Math.ceil(selected * this.props.perPage);
 
+    console.log(data)
     this.setState({offset: offset}, () => {
       this.loadCommentsFromServer();
     });
